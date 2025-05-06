@@ -1,0 +1,19 @@
+version: 2
+
+models:
+  - name: dim_job_details
+    description: "Dimensional table for job details"
+    columns: 
+      - name: job_details_id
+        description: "Surrogate key for job details"
+        tests:
+          - not_null
+          - unique
+
+      - name: headline
+        description: "Job headline"
+        tests:
+          - not_null
+
+      - name: duration
+        description: "Contract duration"
