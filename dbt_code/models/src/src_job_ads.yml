@@ -1,0 +1,49 @@
+version: 2
+
+models:
+  - name: src_job_ads
+    description: "Core job ad info with occupation, relevance, and location"
+    columns:
+      - name: id
+        tests:
+          - not_null
+          - unique
+
+      - name: occupation__label
+        tests:
+          - not_null
+
+      - name: employer__workplace
+        tests:
+          - not_null
+
+      - name: workplace_address__municipality
+        tests:
+          - not_null
+
+      - name: vacancies
+        tests:
+          - not_null
+
+      - name: relevance
+        tests:
+          - not_null
+
+      - name: application_deadline
+        tests:
+          - not_null
+
+# to run test do the following:
+# dbt run --select src_job_ads
+# dbt test --select src_job_ads
+
+
+# LATER - run the following commands to launch local site that shows
+# dependencies +  tests:
+#  - dbt docs generate
+#  - dbt docs serve
+
+# KEY ISSUES FROM TEST:
+# staging.job_ads contains duplicate job_ad ids (at least 2 or 3 per id)
+# - why and how to fix. 'Unique' test fails - should we even test for
+# 'unique' though??
