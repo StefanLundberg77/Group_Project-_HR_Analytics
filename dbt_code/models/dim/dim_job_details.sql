@@ -7,7 +7,7 @@ select
     description_html,
     coalesce(duration, 'ej angiven') as duration,
     salary_type,
-    salary_description,
+    employment_type,
     working_hours_type,
     scope_of_work_min,
     scope_of_work_max

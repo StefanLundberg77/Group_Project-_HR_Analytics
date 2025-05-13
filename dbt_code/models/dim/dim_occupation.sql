@@ -1,3 +1,4 @@
+-- create a table with unique id's for occupation
 with dim_occupation as (select * from {{ ref('src_occupation') }})
 
 select

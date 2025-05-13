@@ -3,13 +3,6 @@ import requests
 import json
 from pathlib import Path
 import os
-from dotenv import load_dotenv
-
-# load_dotenv()
-
-# db_path = os.getenv("db_path")
-# if not db_path:
-#         raise ValueError("db_path is not set. Check your .env file!")
 
 db_path = Path(__file__).parent / "ads_data_warehouse.duckdb"
 
