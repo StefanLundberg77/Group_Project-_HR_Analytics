@@ -1,4 +1,14 @@
-with stg_job_ads as (select * from {{ source('job_ads', 'stg_ads') }})
+--adding deduping logic as API likely duplicates (close to) all ids
+
+
+with stg_job_ads as (select *,
+    row_number() over (
+        partition by id
+        order by application_deadline desc
+    ) as rn 
+
+from {{ source('job_ads', 'stg_ads') }}
+)
 
 select
     occupation__label,
@@ -9,3 +19,4 @@ select
     relevance,
     application_deadline
 from stg_job_ads
+where rn = 1
