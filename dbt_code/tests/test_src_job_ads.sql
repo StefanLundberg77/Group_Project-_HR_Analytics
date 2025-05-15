@@ -1,0 +1,1 @@
+-- Test to find duplicates in fct_job_ads
