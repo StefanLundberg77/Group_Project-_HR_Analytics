@@ -1,7 +1,9 @@
 6. .dbt Tests & Documentation
 
+To run tests, use the following command from the dbt_code project root: dbt test -s <name_of_test_file>
+Alternatively, for custom SQL-based tests, you can run Jinja-enabled queries directly using the dbt Power User extension in VS Code. Set the file language to Jinja SQL, then use the ▶️ ("Run") button to preview query results in the terminal.
 
-This folder contains **custom and generic dbt tests** that validate the quality of our data models in the HR Analytics project.
+This folder contains **custom and generic dbt tests** that validate the quality of our data models in the HiRe Data Analytics project.
 
 ## Purpose
 
@@ -39,6 +41,9 @@ These tests help us ensure:
 - Duplicates exist in `src_job_ads` and `src_job_details`, caused by multiple rows per job ad ID
 - Dimensional keys like `employer_location_id` are clean and stable
 - Tests helped isolate dirty data *before* it reached dashboards
+- Latest learning as of this week (May 21 2025) each new API upload
+  duplicates any job ad remaining from a previous upload - so we added
+  deduplication-logic to sources.yml to squash duplication at the *source
 
 ## dbt Documentation
 
