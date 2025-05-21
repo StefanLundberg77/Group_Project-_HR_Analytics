@@ -3,4 +3,8 @@ sources:
     schema: staging
     tables:
       - name: stg_ads
-        identifier: job_ads
+        identifier: data_field_job_ads
+        tests:
+          - dbt_utils.unique_combination_of_columns:
+              name: unique_id_in_stg_ads
+              combination_of_columns: [id]
