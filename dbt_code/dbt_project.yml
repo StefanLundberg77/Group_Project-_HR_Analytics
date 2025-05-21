@@ -19,13 +19,16 @@ models:
     +materialized: view
 
     src:
-      +materialized: ephemeral
+      +materialized: view
 
     dim:
       +schema: refined
+      +materialized: view
 
     fct:
       +schema: refined
+      +materialized: view
 
     marts:
       +schema: marts
+      +materialized: table
