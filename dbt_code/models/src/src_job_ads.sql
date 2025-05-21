@@ -1,12 +1,13 @@
---adding deduping logic to all src
--- as API likely duplicates (close to) all ids
+--adding deduping logic to all src?
+-- as API likely duplicates all ids
 
 
-with stg_job_ads as (select *,
-    row_number() over (
-        partition by id
-        order by application_deadline desc
-    ) as rn 
+with stg_job_ads as (select *
+
+ --   ,row_number() over (
+ --       partition by id
+ --       order by application_deadline desc
+ --   ) as rn 
 
 from {{ source('job_ads', 'stg_ads') }}
 )
@@ -20,4 +21,4 @@ select
     relevance,
     application_deadline
 from stg_job_ads
-where rn = 1
+--where rn = 1

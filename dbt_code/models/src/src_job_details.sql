@@ -1,7 +1,7 @@
-with stg_job_ads as (select * ,
-    row_number() over (
-        partition by id
-    ) as rn
+with stg_job_ads as (select * 
+--    ,row_number() over (
+--        partition by id
+--    ) as rn
 from {{ source('job_ads', 'stg_ads') }})
 
 select
@@ -17,6 +17,6 @@ select
     scope_of_work__min as scope_of_work_min,
     scope_of_work__max as scope_of_work_max
 from stg_job_ads
-where rn = 1
+--where rn = 1
 
  
